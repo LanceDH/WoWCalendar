@@ -1,0 +1,281 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="12.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{1550BCF3-7D83-475E-A23E-B24AC6E940E1}</ProjectGuid>
+    <OutputType>WinExe</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>Calendar</RootNamespace>
+    <AssemblyName>Calendar</AssemblyName>
+    <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <ProjectTypeGuids>{60dc8134-eba5-43b8-bcc9-bb4bc16c2548};{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</ProjectTypeGuids>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup>
+    <ApplicationIcon>TaskbarIcon.ico</ApplicationIcon>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="Newtonsoft.Json, Version=7.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\packages\Newtonsoft.Json.7.0.1\lib\net45\Newtonsoft.Json.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.Configuration" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Windows.Input.Manipulations" />
+    <Reference Include="System.Xml" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="System.Xaml">
+      <RequiredTargetFramework>4.0</RequiredTargetFramework>
+    </Reference>
+    <Reference Include="WindowsBase" />
+    <Reference Include="PresentationCore" />
+    <Reference Include="PresentationFramework" />
+  </ItemGroup>
+  <ItemGroup>
+    <ApplicationDefinition Include="App.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </ApplicationDefinition>
+    <Compile Include="BLL.cs" />
+    <Compile Include="DAL.cs" />
+    <Compile Include="DayOverviewWindow.xaml.cs">
+      <DependentUpon>DayOverviewWindow.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Model.cs" />
+    <Compile Include="Tooltip.xaml.cs">
+      <DependentUpon>Tooltip.xaml</DependentUpon>
+    </Compile>
+    <Page Include="DayOverviewWindow.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="MainWindow.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Compile Include="App.xaml.cs">
+      <DependentUpon>App.xaml</DependentUpon>
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="MainWindow.xaml.cs">
+      <DependentUpon>MainWindow.xaml</DependentUpon>
+      <SubType>Code</SubType>
+    </Compile>
+    <Page Include="Tooltip.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Properties\AssemblyInfo.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Resources.resx</DependentUpon>
+    </Compile>
+    <Compile Include="Properties\Settings.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Settings.settings</DependentUpon>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+    </Compile>
+    <EmbeddedResource Include="Properties\Resources.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+    <Resource Include="Fonts\FRIZQT__.TTF" />
+    <None Include="packages.config" />
+    <None Include="Properties\Settings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <LastGenOutput>Settings.Designer.cs</LastGenOutput>
+    </None>
+    <AppDesigner Include="Properties\" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="App.config">
+      <SubType>Designer</SubType>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\BorderLeft.png" />
+    <Resource Include="Images\BorderRight.png" />
+    <Resource Include="Images\BorderTopFull.png" />
+    <Resource Include="Images\DayBG2.png" />
+    <Resource Include="Images\DayBG3.png" />
+    <Resource Include="Images\DayBG4.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\DayBG1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\DayHighlight.png" />
+    <Resource Include="Images\DayShadeOverlay.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\BorderTop.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\BorderBottom.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\BtnCloseUp.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\BtnCloseDown.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\BtnMiniUp.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\BtnMiniDown.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\MonthBG.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\ShadeBottom4.png" />
+    <Resource Include="Images\ShadeBottom9.png" />
+    <Resource Include="Images\WeekdayBG.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\CurrentDay.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\BtnNextDown.png" />
+    <Resource Include="Images\BtnNextUp.png" />
+    <Resource Include="Images\BtnPrevDown.png" />
+    <Resource Include="Images\BtnPrevUp.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\BorderTooltip.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\TooltipBorderBL.png" />
+    <Resource Include="Images\TooltipBorderBottom.png" />
+    <Resource Include="Images\TooltipBorderBR.png" />
+    <Resource Include="Images\TooltipBorderLeft.png" />
+    <Resource Include="Images\TooltipBorderRight.png" />
+    <Resource Include="Images\TooltipBorderTL.png" />
+    <Resource Include="Images\TooltipBorderTop.png" />
+    <Resource Include="Images\TooltipBorderTR.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\TooltipBG.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\DialogBorderBL.png" />
+    <Resource Include="Images\DialogBorderBottom.png" />
+    <Resource Include="Images\DialogBorderBR.png" />
+    <Resource Include="Images\DialogBorderLeft.png" />
+    <Resource Include="Images\DialogBorderRight.png" />
+    <Resource Include="Images\DialogBorderTL.png" />
+    <Resource Include="Images\DialogBorderTop.png" />
+    <Resource Include="Images\DialogBorderTR.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\ButtonCorner.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="TaskbarIcon.ico" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\DayEventOverlay.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\ButtonSmallUp.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\ButtonSmallHighlight.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\ButtonSmallDown.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\ButtonSmallDownHighlight.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\InputBG.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\InputBGCenter.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\InputBGLeft.png" />
+    <Resource Include="Images\InputBGRight.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\ButtonExpandDown.png" />
+    <Resource Include="Images\ButtonExpandHighlight.png" />
+    <Resource Include="Images\ButtonExpandUp.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\ShadeTop0.png" />
+    <Resource Include="Images\ShadeTop1.png" />
+    <Resource Include="Images\ShadeTop11.png" />
+    <Resource Include="Images\ShadeTop12.png" />
+    <Resource Include="Images\ShadeTop3.png" />
+    <Resource Include="Images\ShadeTop4.png" />
+    <Resource Include="Images\ShadeTop9.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\ShadeBottom1.png" />
+    <Resource Include="Images\ShadeBottom11.png" />
+    <Resource Include="Images\ShadeBottom3.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\ShadeTop8.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\ShadeBottom8.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\ShadeBottom0.png" />
+    <Resource Include="Images\ShadeBottom2.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\ShadeBottom10.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\ShadeTop13.png" />
+    <Resource Include="Images\ShadeTop5.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\ShadeBottom13.png" />
+    <Resource Include="Images\ShadeBottom5.png" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>
